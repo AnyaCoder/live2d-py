@@ -17,12 +17,12 @@ set(Python3_FIND_REGISTRY "NEVER")
 set(CMAKE_CONFIGURATION_TYPES "Release")
 
 if(DEFINED PYTHON_INSTALLATION_PATH)
-    message("Found PYTHON_INSTALLATION_PATH in environment variables")
     set(CMAKE_PREFIX_PATH ${PYTHON_INSTALLATION_PATH})
+    message("PIP is found: ${CMAKE_PREFIX_PATH}")
 else()
-    # 寻找Python
-    message("Not found PYTHON_INSTALLATION_PATH in environment variables. \nUse default path.")
+    # 手动设置
     set(CMAKE_PREFIX_PATH D:/Python/x86/3.8)
+    message("PIP not found.\nUse default: ${CMAKE_PREFIX_PATH}")
 endif()
 
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
