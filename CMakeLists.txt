@@ -39,15 +39,7 @@ else()
   set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/static/${CMAKE_BUILD_TYPE})
 endif()  
 
-if(ENABLE_LOG)
-message("Runtime log: on")
-# 关闭 log 输出
-else()
-message("Runtime log: off")
-add_compile_definitions(LOG_MODE_RELEASE)
-endif()
-
-find_package(Python3 REQUIRED Development)
+find_package(Python REQUIRED Interpreter Development)
 
 message("Python_LIBRARIES " ${Python_LIBRARIES})
 
@@ -55,7 +47,7 @@ add_subdirectory(Main)
 
 # 创建Python扩展模块
 add_library(LAppModelWrapper SHARED LAppModelWrapper.cpp)
-target_link_libraries(LAppModelWrapper PRIVATE Python3::Python live2d)
+target_link_libraries(LAppModelWrapper PRIVATE Python::Python live2d)
 
 # Configure for Linux / Windows
 if(CMAKE_SYSTEM_NAME MATCHES "Linux")
