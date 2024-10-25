@@ -21,7 +21,7 @@ if(DEFINED PYTHON_INSTALLATION_PATH)
     message("PIP is found: ${CMAKE_PREFIX_PATH}")
 else()
     # 手动设置
-    set(CMAKE_PREFIX_PATH D:/Python/x86/3.8)
+    set(CMAKE_PREFIX_PATH D:/Python/x64/3.9)
     message("PIP not found.\nUse default: ${CMAKE_PREFIX_PATH}")
 endif()
 

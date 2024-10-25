@@ -57,9 +57,7 @@ class CMakeBuild(build_ext):
         build_args = ["--config", "Release"]
 
         if platform.system() == "Windows":
-            cmake_args += [
-                "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY_{}={}".format("Release", extdir)
-            ]
+            cmake_args += []
             if platform.python_compiler().find("64 bit") > 0:
                 print("Building for 64 bit")
                 cmake_args += ["-A", "x64"]
